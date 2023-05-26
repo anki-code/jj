@@ -17,6 +17,7 @@ pip install git+https://github.com/anki-code/jj
 
 ## Usage
 
+### Get json from stream
 ```xsh
 echo '{"name": "John Doe", \'age\': 30, "city": "New York"}' | jj
 ```
@@ -26,4 +27,13 @@ echo '{"name": "John Doe", \'age\': 30, "city": "New York"}' | jj
     "age": 30,
     "city": "New York"
 }
+```
+
+### In case of object error
+
+```xsh
+echo '{"name":' | jj
+# JSON dict error: Expecting value: line 2 column 1 (char 9)
+# Python dict error: '{' was never closed (<unknown>, line 1)
+# JavaScript dict error: Unexpected end of input
 ```
