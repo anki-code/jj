@@ -18,7 +18,7 @@ pip install git+https://github.com/anki-code/jj
 ## Usage
 
 ```xsh
-echo '{"name": "John Doe", "age": 30, "city": "New York"}' | jj
+echo '{"name": "John Doe", \'age\': 30, "city": "New York"}' | jj
 ```
 ```json
 {
