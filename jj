@@ -1,0 +1,62 @@
+#!/usr/bin/env python3
+
+def _jj(args, stdin, stdout):
+    import json
+    import demjson3
+    import ast
+    import logging
+    import argparse
+    from collections.abc import Iterable
+    from pygments import highlight, lexers, formatters
+
+    #argp = argparse.ArgumentParser(description=f"enJoy Json")
+    #argp.add_argument('-i', required=False, help="Host")
+    #argcomplete.autocomplete(argp)
+    #args = argp.parse_args()
+
+    text = ''
+    if not args:
+        for line in stdin.readlines():
+            text += line
+    else:
+        text = args[0]
+        
+    if 0:
+        print(repr(text))
+        
+    errors = []
+
+    dct = None
+    try:  # JSON
+        dct = json.loads(text)
+    except Exception as e:
+        errors.append('JSON dict error: '+ str(e))
+
+    if dct is None:
+        try:  # Python dict
+            dct = ast.literal_eval(text)
+        except Exception as e:
+            errors.append('Python dict error: '+str(e))
+
+    if dct is None:
+        try:  # JavaScript Object
+            dct = demjson3.decode(text)
+        except Exception as e:
+            errors.append('JavaScript dict error: ' + str(e))
+
+    if dct is None:
+        for e in errors:
+            print(e)
+        sys.exit(1)
+
+    try:
+        formatted_json = json.dumps(dct, indent=4)
+    except Exception as e:
+        print('JSON dump error:', e)
+        sys.exit(1)        
+    
+    colorful_json = highlight(formatted_json, lexers.JsonLexer(), formatters.TerminalFormatter())
+    print(colorful_json)
+   
+if __name__ == '__main__':
+    print('Hello from jj')
