@@ -1,5 +1,5 @@
 <p align="center">
-enJoy Json (JJ) is to highlight and format the json, javascript or python dict object.
+<b>enJoy Json</b> (JJ) is to syntax highlighting and formatting the json, javascript or python dict object in error-tolerant manner.
 </p>
 
 <p align="center">
@@ -9,10 +9,10 @@ If you like the idea click ⭐ on the repo and <a href="https://twitter.com/inte
 
 ## Installation
 
-To install use [xpip](https://xon.sh/aliases.html#xpip):
+To install use PyPi:
 
 ```xsh
-xpip install git+https://github.com/anki-code/jj
+pip install git+https://github.com/anki-code/jj
 ```
 
 ## Usage
