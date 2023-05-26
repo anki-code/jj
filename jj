@@ -9,10 +9,6 @@ import argparse
 from collections.abc import Iterable
 from pygments import highlight, lexers, formatters
 
-#argp = argparse.ArgumentParser(description=f"JJ - enJoy Json")
-#argp.add_argument('-i', required=False, help="Host")
-#argcomplete.autocomplete(argp)
-#args = argp.parse_args()
 
 args = sys.argv[1:]
 
