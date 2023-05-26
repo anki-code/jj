@@ -5,7 +5,7 @@ with open("README.md", "r", encoding="utf8") as fh:
 
 setuptools.setup(
     name="jj",
-    version=__version__,
+    version='0.0.1',
     description="",
     long_description=long_description,
     long_description_content_type="text/markdown",
@@ -15,7 +15,7 @@ setuptools.setup(
         "Code": "https://github.com/anki-code/jj",
         "Issue tracker": "https://github.com/anki-code/jj/issues",
     },
-    python_requires='>=3.11',
+    python_requires='>=3.8',
     install_requires=[
         'demjson3',
         'pygments'
